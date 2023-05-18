@@ -1,0 +1,21 @@
+{
+  "name": "amir/shopping-list",
+  "description": "this is a demo shopping list",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "authors": [
+    {
+      "name": "Amir Azad"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*",
+    "vlucas/phpdotenv": "^5.3"
+  }
+}

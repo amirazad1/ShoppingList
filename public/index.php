@@ -16,10 +16,12 @@ define('VIEW_PATH', __DIR__ . '/../views');
 $router = new Router();
 
 $router
-    ->get('/', [HomeController::class, 'list'])
+    ->get('/', [HomeController::class, 'index'])
+    ->get('/list', [HomeController::class, 'list'])
+    ->get('/init', [HomeController::class, 'init'])
     ->post('/create', [HomeController::class, 'create'])
     ->post('/update', [HomeController::class, 'update'])
-    ->post('/delete', [HomeController::class, 'delete']);
+    ->get('/delete', [HomeController::class, 'delete']);
 
 (new App(
     $router,
