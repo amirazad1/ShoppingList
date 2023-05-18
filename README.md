@@ -6,4 +6,4 @@ To run this project on your local system:
 2) Composer install
 3) Create a MySql Database on your MySql server
 4) Set database configuration in .env file
-5) run localhost/init to create your Database schema
+5) run http://localhost/init to create your Database schema
