@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Shopping List</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,21 +23,19 @@
         </div>
 
         <hr/>
-        <form method="post" action="create">
-            Name:
-            <input class="form-control" name="name"/><br/>
+        <form class="form form-inline" method="post" action="create">
+            Item:
+            <input class="form-control" name="name" required />
             Qty:
-            <input class="form-control" name="qty"/><br/>
-            <input type="submit" class="btn btn-info" value="َAdd">
+            <input class="form-control" name="qty" required />
+            <input type="submit" class="btn btn-primary" value="Add To List">
         </form>
 
         <table id="list" class="table table-striped table-hover">
             <thead>
-            <th>id</th>
-            <th>name</th>
+            <th>item</th>
             <th>qty</th>
-            <th>done</th>
-            <th></th>
+            <th class="text-right">done</th>
             <th></th>
             </thead>
         </table>
@@ -47,24 +45,24 @@
 <div id="editModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="update_form">
+            <form id="update_form" method="post" action="update">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit List</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="id_u" name="id" class="form-control" required>
+                    <input type="hidden" id="id_u" name="id_u" class="form-control" required>
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" id="name_u" name="name" class="form-control" required>
+                        <label>Item</label>
+                        <input type="text" id="name_u" name="name_u" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Qty</label>
-                        <input type="number" id="qty_u" name="qty" class="form-control" required>
+                        <input type="number" id="qty_u" name="qty_u" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Done</label>
-                        <input type="checkbox" id="done_u" name="done" class="form-control" required>
+                        <input type="checkbox" id="done_u" name="done_u" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">

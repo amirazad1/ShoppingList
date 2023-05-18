@@ -41,9 +41,7 @@ class HomeController
     public function update()
     {
         $shop_list=new ShopList("list_items");
-        $shop_list->update($_POST['id'],$_POST);
-        header('Location:/');
-
+        $shop_list->update((int)$_POST['id'],$_POST) ? http_response_code(200) : http_response_code(500);
     }
 
     public function delete($id)

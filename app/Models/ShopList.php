@@ -70,16 +70,18 @@ class ShopList
 
     public function update(int $id, array $data = [])
     {
-        if (count($data) > 0) {
-            $kv = '';
-            foreach ($data as $key => $value) {
-                $kv .= $key . '=' . $value . ',';
-            }
-            $stmt = $this->db->prepare("UPDATE $this->table SET $kv WHERE id=" . $id);
-            return $stmt->execute();
-        }
+        //todo:can improve generic
+//        if (count($data) > 0) {
+//            $kv = '';
+//            foreach ($data as $key => $value) {
+//                $kv .= $key . '=' . $value . ',';
+//            }
+//            $kv=substr($kv,0,strlen($kv-1));
 
-        return false;
+//            $stmt = $this->db->prepare("UPDATE $this->table SET $kv WHERE id=" . $id);
+//        }
+            $stmt = $this->db->prepare("UPDATE $this->table SET name='".$data['name']."',qty=".$data['qty'].",done=".$data['done']." WHERE id=" . $id);
+            return $stmt->execute();
     }
 
     public function delete($id)
