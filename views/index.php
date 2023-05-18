@@ -23,6 +23,7 @@
         </div>
 
         <hr/>
+<!--        todo:impelement CSRF      -->
         <form class="form form-inline" method="post" action="create">
             Item:
             <input class="form-control" name="name" required />
