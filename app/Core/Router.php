@@ -37,7 +37,7 @@ class Router
      */
     public function resolve(string $requestUri, string $requestMethod)
     {
-        //todo: need improve
+        //todo: need improve for complicated routes
         $route = explode('?', $requestUri)[0];
         $param = explode('?', $requestUri)[1] ?? "";
         $param=[$param];

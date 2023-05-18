@@ -9,15 +9,19 @@ use App\Models\ShopList;
 
 class HomeController
 {
+
+    private ShopList $shop_list;
+
     public function __construct()
     {
+        $this->shop_list=new ShopList();
 
     }
 
-    public function init()
+    public function init():string
     {
-        $shop_list=new ShopList("");
-        return $shop_list->init() ? 'Table Create Successfully' : 'Error';
+        //to create tables visit /init
+        return $this->shop_list->init();
     }
 
     public function index():View
@@ -26,29 +30,26 @@ class HomeController
     }
 
     public function list()
-    {
-        $shop_list=new ShopList("list_items");
-        Response::Json($shop_list->get());
+    {      
+        Response::Json($this->shop_list->get());
     }
 
     public function create()
     {
-        $shop_list=new ShopList("list_items");
-        $shop_list->create($_POST);
+        //todo: server side validation needed
+        $this->shop_list->create($_POST);
         header('Location:/');
     }
 
     public function update()
     {
-        $shop_list=new ShopList("list_items");
-        $shop_list->update((int)$_POST['id'],$_POST) ? http_response_code(200) : http_response_code(500);
+        //todo: server side validation needed
+        $this->shop_list->update((int)$_POST['id'],$_POST) ? http_response_code(200) : http_response_code(500);
     }
 
     public function delete($id)
-    {
-        echo $id;
-        $shop_list=new ShopList("list_items");
-        $shop_list->delete($id);
+    {  
+        $this->shop_list->delete($id);
         header('Location:/');
 
     }
